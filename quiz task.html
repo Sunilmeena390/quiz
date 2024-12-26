@@ -6,47 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>quiz</title>
     <link rel="stylesheet" href="quiz task.css">
+    <style>
+        #second-container {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
 
+    <!-- // container -first///////////////// -->
 
-    <header>
-        <div class="container">
-            <h1>Quiz Pop</h1>
-            <button class="createuser">Create User</button>
-        </div>
-    </header>
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h2>Take your <span class="highlight">Knowledge</span> to Next level</h2>
-
-                <button class="start-button" onclick="startQuiz()">Start Quiz</button>
+    <div id="first-container">
+        <header>
+            <div class="container">
+                <h1>Quiz Pop</h1>
+                <button class="createuser">Create User</button>
             </div>
-            <div class="box">
-                <div class="box-content">
-                    <h3>Username</h3>
-                    <input type="text" id="username" placeholder="Enter your username" />
-                    <div class="createbtn">
-                        <button class="Create" onclick="create()">Create</button>
-                        <button class="quit-btn">Quit <a href=></a></button>
+        </header>
+        <main>
+            <section class="hero">
+                <div class="hero-content">
+                    <h2>Take your <span class="highlight">Knowledge</span> to Next level</h2>
+
+                    <button class="start-button" onclick="startQuiz()">Start Quiz</button>
+                </div>
+                <div class="box">
+                    <div class="box-content">
+                        <h3>Username</h3>
+                        <input type="text" id="username" placeholder="Enter your username" />
+                        <div class="createbtn">
+                            <button class="Create" onclick="create()">Create</button>
+                            <button class="quit-btn">Quit <a href=></a></button>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="hero-image">
-                 <img src="image/istockphoto-979622962-612x612.jpg" alt="">
-            </div>
-        </section>
-    </main>
+                <div class="hero-image">
+                    <img src="image/istockphoto-979622962-612x612.jpg" alt="">
+                </div>
+            </section>
+        </main>
+    </div>
+
     <script>
-        let userCreated = false;    
+
+        let userCreated = false;
         const box = document.querySelector(".box");
         const userInput = document.querySelector("#username");
         const createUserButton = document.querySelector(".createuser");
         const quitButton = document.querySelector(".quit-btn");
-
         createUserButton.addEventListener("click", () => {
             box.style.display = "block";
         });
@@ -65,7 +74,7 @@
 
             createUserButton.textContent = usernameValue;
             box.style.display = "none";
-            userCreated = true; 
+            userCreated = true;
             alert("USER CREATED SUCCESSFULLY");
         }
 
@@ -75,9 +84,71 @@
                 return;
             }
 
-             
+
         }
     </script>
+    <!-- // container -first///////////////// -->
+
+
+    <!-- container-second////////// -->
+
+    <div id="second-container">
+        <section2>
+            <header>
+                <div class="navbar">
+                    <div class="brand">Quiz Pop</div>
+                    <nav class="menu">
+                        <a href="#" id="home-button">Home</a>
+                        <a href="#">Quiz</a>
+                        <a href="#">Score</a>
+                    </nav>
+                    <div class="user"> <a href=""><button>Create User </button></a></div>
+                </div>
+            </header>
+
+            <main id="container-second">
+                <div class="top">
+                    <h1>Welcome to Quiz App</h1>
+                    <h2>Select Topic</h2>
+                </div>
+                <div class="topics">
+                    <button class="topic music">Music</button>
+                    <button class="topic art">Modern Art</button>
+                    <button class="topic coding">Coding</button>
+                    <button class="topic start">start</button>
+                </div>
+            </main>
+    </div>
+
+    </section>
+
+    <script>
+
+        const homebutton = document.getElementById("home-button");
+
+
+        function startQuiz() {
+            if (!userCreated) {
+                alert("PLEASE CREATE A USER.");
+                return;
+            }
+
+            // Hide the first container and show the second container
+            document.getElementById("first-container").style.display = "none";
+            document.getElementById("second-container").style.display = "block";
+        }
+
+        homebutton.addEventListener("click", (home) => {
+            home.preventDefault();
+            document.getElementById("first-container").style.display = "block";
+            document.getElementById("second-container").style.display = "none";
+        })
+
+    </script>
+    <!-- container-second////////// -->
+
+
+
 </body>
 
 </html>
